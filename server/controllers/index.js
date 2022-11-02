@@ -39,8 +39,8 @@ module.exports.displayServicesPage = (req, res, next) => {
     res.render('service', { title: 'Services', displayName: req.user ? req.user.displayName : ''});
 }
 
-module.exports.displayContactPage = (req, res, next) => {
-    res.render('contact', { title: 'Contact', displayName: req.user ? req.user.displayName : ''});
+module.exports.displayBookPage = (req, res, next) => {
+    res.render('Book', { title: 'Book', displayName: req.user ? req.user.displayName : ''});
 }
 
 module.exports.displayLoginPage = (req, res, next) => {
@@ -102,7 +102,7 @@ module.exports.processLoginPage = (req, res, next) => {
             }, token: authToken});
             */
 
-            return res.redirect('/contact');
+            return res.redirect('/book');
         });
     })(req, res, next);
 }
@@ -163,7 +163,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             */
 
             return passport.authenticate('local')(req, res, () => {
-                res.redirect('/contact')
+                res.redirect('/book')
             });
         }
     });

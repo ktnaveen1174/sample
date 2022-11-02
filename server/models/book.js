@@ -6,13 +6,13 @@
 let mongoose = require('mongoose');
 
 // create a model class
-let contactModel = mongoose.Schema({
+let bookModel = mongoose.Schema({
     name: String,
     number: String,
     email: String
 },
 {
-    collection: "contacts"
+    collection: "books"
 });
 
-module.exports = mongoose.model('Contact', contactModel);
+module.exports = mongoose.model('Book', bookModel);
