@@ -1,45 +1,30 @@
-/* File name: contact.js
- * Student name: Naveen Kanmani Thirunavukkarasu
- * Student ID: 301247248
- * Date: Oct 17, 2022 */
-
+//routes-book.js-Aafaq-Muzaffar-301190210-Nov-01-2022
 let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 
-let jwt = require('jsonwebtoken');
-
-let passport = require('passport');
+// connect to our Book Model
+let Book = require('../models/book');
 
 let bookController = require('../controllers/book');
 
-// helper function for guard purposes
-function requireAuth(req, res, next)
-{
-    // check if the user is logged in
-    if(!req.isAuthenticated())
-    {
-        return res.redirect('/login');
-    }
-    next();
-}
 
 /* GET Route for the Book List page - READ Operation */
 router.get('/', bookController.displayBookList);
 
 /* GET Route for displaying the Add page - CREATE Operation */
-router.get('/add', requireAuth, bookController.displayAddPage);
+router.get('/add', bookController.displayAddPage);
 
 /* POST Route for processing the Add page - CREATE Operation */
-router.post('/add', requireAuth, bookController.processAddPage);
+router.post('/add', bookController.processAddPage);
 
 /* GET Route for displaying the Edit page - UPDATE Operation */
-router.get('/edit/:id', requireAuth, bookController.displayEditPage);
+router.get('/edit/:id', bookController.displayEditPage);
 
 /* POST Route for processing the Edit page - UPDATE Operation */
-router.post('/edit/:id', requireAuth, bookController.processEditPage);
+router.post('/edit/:id', bookController.processEditPage);
 
 /* GET to perform  Deletion - DELETE Operation */
-router.get('/delete/:id', requireAuth, bookController.performDelete);
+router.get('/delete/:id', bookController.performDelete);
 
 module.exports = router;

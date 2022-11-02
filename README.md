@@ -1,2 +1,2 @@
-# WebAppAssignment2
-Web App Application Assignment 2 - Naveen Kanmani Thirunavukkarasu
+# COMP229-F2022-MidTerm-301190210
+ 
